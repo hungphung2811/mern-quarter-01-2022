@@ -1,3 +1,6 @@
+import 'module-alias/register';
+import 'source-map-support/register';
+
 import dotenv from 'dotenv-safe';
 import express from 'express';
 import config from 'config';

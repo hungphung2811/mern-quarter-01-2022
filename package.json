@@ -7,8 +7,12 @@
     "dev": "nodemon",
     "pro": "node -r ts-node/register/transpile-only -r tsconfig-paths/register ./dist/src/index.js",
     "build": "tsc -p tsconfig.prod.json",
+    "start": "node ./dist/src/index.js",
     "test": "jest --coverage",
     "test:watch": "jest --watch"
+  },
+  "_moduleAliases": {
+    "@src": "dist/src"
   },
   "devDependencies": {
     "@types/config": "^0.0.41",
@@ -43,10 +47,12 @@
     "dotenv-safe": "^8.2.0",
     "express": "^5.0.0-alpha.8",
     "lodash": "^4.17.21",
+    "module-alias": "^2.2.2",
     "mongoose": "^6.1.8",
     "nanoid": "^3.2.0",
     "nodemailer": "^6.7.2",
     "pino": "^7.6.5",
+    "source-map-support": "^0.5.21",
     "zod": "^3.11.6"
   }
 }
