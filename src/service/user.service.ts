@@ -6,7 +6,7 @@ export function create(input: Partial<User>) {
 }
 
 export function findUserByEmail(email: string){
-    return UserModel.find({'email': email});
+    return UserModel.findOne({'email': email});
 }
 
 export function foundUserById(id:string){

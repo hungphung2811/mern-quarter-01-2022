@@ -2,6 +2,8 @@ import { CreateUserInput, VerifiUserInput } from '@src/schema/user.schema';
 import { create, findUserByEmail, foundUserById } from '@src/service/user.service';
 import log from '@src/utils/logger';
 import sendEmail from '@src/utils/mailer';
+import { responseCustom } from '@src/utils/resposiveCustom';
+import dayjs from 'dayjs';
 import { Request, Response } from 'express';
 
 export async function createHandler(req: Request<{}, {}, CreateUserInput>, res: Response) {
@@ -9,10 +11,10 @@ export async function createHandler(req: Request<{}, {}, CreateUserInput>, res: 
     try {
         const userByEmail = await findUserByEmail(body.email);
         if (userByEmail) {
-            return res.status(409).json({
+            return res.status(409).json(responseCustom({
                 status: false,
                 message: 'Email already exists'
-            })
+            }));
         }
 
         const user = await create(body);
